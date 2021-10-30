@@ -23,6 +23,12 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.s[ac]ss$/,
+        exclude: /node_modules/,
+        include: /src/,
+        use: ["style-loader", "css-loader", "sass-loader"],
+      },
     ],
   },
   plugins: [
