@@ -2,10 +2,13 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "development",
+  resolve: {
+    extensions: [".ts", ".tsx", ".js", ".jsx"],
+  },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
         include: /src/,
         use: {
@@ -13,7 +16,8 @@ module.exports = {
           options: {
             jsc: {
               parser: {
-                jsx: true,
+                tsx: true,
+                syntax: "typescript",
               },
             },
           },
