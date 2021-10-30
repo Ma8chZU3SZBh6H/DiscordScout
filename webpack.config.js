@@ -1,4 +1,7 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const tailwindcss = require("tailwindcss");
+const autoprefix = require("autoprefixer");
 
 module.exports = {
   mode: "development",
@@ -24,14 +27,27 @@ module.exports = {
         },
       },
       {
-        test: /\.s[ac]ss$/,
+        test: /\.(css|s[c,a]ss)$/,
         exclude: /node_modules/,
         include: /src/,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          {
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                plugins: [tailwindcss("./tailwind.config.js"), autoprefix],
+              },
+            },
+          },
+          "sass-loader",
+        ],
       },
     ],
   },
   plugins: [
+    new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
     }),
