@@ -10,9 +10,20 @@ module.exports = {
         include: /src/,
         use: {
           loader: "swc-loader",
+          options: {
+            jsc: {
+              parser: {
+                jsx: true,
+              },
+            },
+          },
         },
       },
     ],
   },
-  plugins: [new HtmlWebpackPlugin()],
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./public/index.html",
+    }),
+  ],
 };
