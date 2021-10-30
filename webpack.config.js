@@ -2,9 +2,11 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const tailwindcss = require("tailwindcss");
 const autoprefix = require("autoprefixer");
+const webpack = require("webpack");
 
 module.exports = {
   mode: "development",
+  target: "web",
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".jsx"],
   },
@@ -50,6 +52,9 @@ module.exports = {
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
+    }),
+    new webpack.ProvidePlugin({
+      React: "react",
     }),
   ],
 };
