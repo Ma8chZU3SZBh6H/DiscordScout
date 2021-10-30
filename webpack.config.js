@@ -3,6 +3,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const tailwindcss = require("tailwindcss");
 const autoprefix = require("autoprefixer");
 const webpack = require("webpack");
+const Dotenv = require("dotenv-webpack");
 
 module.exports = {
   mode: "development",
@@ -56,5 +57,6 @@ module.exports = {
     new webpack.ProvidePlugin({
       React: "react",
     }),
+    new Dotenv(),
   ],
 };
