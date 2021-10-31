@@ -5,7 +5,7 @@ import { UserTypes } from "../types/userTypes";
 
 export function login(token: string, remember: boolean = false) {
     return function (dispatch: Dispatch<UserAction>) {
-        if (remember) {
+        if (remember === true) {
             localStorage.setItem("token", token);
         }
         dispatch({

@@ -2,7 +2,7 @@ import { UserAction, UserState } from "../../types";
 import { UserTypes } from "../types/userTypes";
 
 const defaultState : UserState = {
-    token: null
+    token: localStorage.getItem("token") ?? null
 }
 
 function userReducer(state = defaultState, action : UserAction) {

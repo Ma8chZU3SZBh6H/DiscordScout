@@ -6,9 +6,18 @@ export interface UserState{
     token: string | null
 }
 
+export interface RouterState{
+    page: string
+}
+
 export interface UserAction{
     type: string,
     payload?: string | null
+}
+
+export interface RouterAction{
+    type: string,
+    payload?: string
 }
 
 //forms
@@ -16,7 +25,7 @@ export interface UserAction{
 export interface LoginForm {
     login: {value: string},
     password: {value: string},
-    remember: {value: boolean}
+    remember: {checked: boolean}
 }
 
 export interface MfaForm{
