@@ -51,7 +51,7 @@ function FormLogin() {
         const mfaResponse = await reqMfa(code.value, ticket);
        
         if (mfaResponse.error === null) {
-            user.login(mfaResponse.data.token);
+            user.login(mfaResponse.data.token, remember);
             setFormStage("completed");
         }
         else{
@@ -68,7 +68,7 @@ function FormLogin() {
         const smsResponse = await reqSms(code.value, ticket);
 
         if (smsResponse.error === null) {
-            user.login(smsResponse.data.token);
+            user.login(smsResponse.data.token, remember);
             setFormStage("completed");
         }
         else{

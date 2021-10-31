@@ -11,10 +11,14 @@ function App() {
         if (user.user.token !== null) {
             router.dashboardPage();
         }
-    }, []);
+        else{
+            router.loginPage();
+        }
+    }, [user.user.token]);
+
     switch (router.router.page) {
         case RouterPages.DASHBOARD:
-            return <div>DASHBOARD</div>;
+            return <div><h1>DASHBOARD</h1><button onClick={()=>user.logout()}>LOGOUT</button></div>;
         case RouterPages.LOGIN:
             return <Login/>
         default:
