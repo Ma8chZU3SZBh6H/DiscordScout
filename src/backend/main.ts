@@ -1,12 +1,6 @@
 import { BrowserWindow, app, ipcMain } from "electron";
 import * as isDev from "electron-is-dev";
-import {
-  LoginHandlerResponse,
-  PurpleUser,
-  ReqUser,
-  User,
-  UserState,
-} from "../types";
+import { LoginHandlerResponse, PurpleUser, User, UserState } from "../types";
 import installExtension, {
   REDUX_DEVTOOLS,
   REACT_DEVELOPER_TOOLS,
