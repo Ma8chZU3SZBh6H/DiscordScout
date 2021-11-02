@@ -1,5 +1,5 @@
 import { Dispatch } from "redux";
-import { RouterAction } from "../../types";
+import { RouterAction } from "../../../types";
 import { RouterPages, RouterTypes } from "../types/routerTypes";
 
 export function loginPage() {

@@ -27,4 +27,8 @@ module.exports = {
   output: {
     path: path.join(__dirname, "/dist/backend"),
   },
+  externals: {
+    bufferutil: "bufferutil",
+    "utf-8-validate": "utf-8-validate",
+  },
 };

@@ -1,4 +1,4 @@
-import { LoginResponseSuccessful, Response } from "../types";
+import { LoginResponseSuccessful, Response } from "../../types";
 import reqPost from "./reqPost";
 
 async function reqSms(code:string, ticket: string) : Promise<Response<LoginResponseSuccessful>> {

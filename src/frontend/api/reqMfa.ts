@@ -1,5 +1,5 @@
 import axios from "axios";
-import { LoginResponse, LoginResponseSuccessful, Response } from "../types";
+import { LoginResponse, LoginResponseSuccessful, Response } from "../../types";
 import reqPost from "./reqPost";
 import req from "./reqWrap";
 

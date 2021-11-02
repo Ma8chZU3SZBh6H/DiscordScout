@@ -1,5 +1,5 @@
 import { AxiosError, AxiosResponse } from "axios";
-import { Response } from "../types";
+import { Response } from "../../types";
 
 interface TestResponse{
     userId: number,

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Response } from "../types";
+import { Response } from "../../types";
 import req from "./reqWrap";
 
 async function reqPost<T = any>(url, data) : Promise<Response<T>>  {
