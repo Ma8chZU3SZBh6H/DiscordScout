@@ -1,0 +1,5 @@
+{
+  "watch": ["src/backend"],
+  "exec": "webpack --config ./webpack.electron.js && electron ./dist/backend/main.js",
+  "ext": "ts"
+}

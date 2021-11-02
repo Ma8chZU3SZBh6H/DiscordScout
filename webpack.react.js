@@ -6,7 +6,7 @@ const webpack = require("webpack");
 const Dotenv = require("dotenv-webpack");
 const path = require("path");
 
-const target = process.env.TARGET ?? "web";
+const target = process.env.TARGET ?? "electron-renderer";
 
 module.exports = {
   mode: "development",
