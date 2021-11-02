@@ -39,6 +39,14 @@ export interface MfaForm {
   code: { value: string };
 }
 
+//dashboard
+
+export interface DashboardChannel {
+  name: string | null;
+  friend: string | null;
+  id: string;
+}
+
 //axios
 
 export interface Response<T = null> {
@@ -68,6 +76,11 @@ export interface LoginHandlerResponse {
   msg: string | null;
   user: User | null;
 }
+
+// export interface ReqUser {
+//   id: string | number;
+//   token: string;
+// }
 
 //DISCORD USER TYPE
 

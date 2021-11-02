@@ -26,6 +26,7 @@ function App() {
   }, []);
 
   useEffect(() => {
+    console.log(userState.user.token);
     if (userState.user.token !== null) {
       ipcRenderer.invoke("login", userState.user);
     }

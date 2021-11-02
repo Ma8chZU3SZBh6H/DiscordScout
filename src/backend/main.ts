@@ -1,12 +1,19 @@
 import { BrowserWindow, app, ipcMain } from "electron";
 import * as isDev from "electron-is-dev";
-import { LoginHandlerResponse, User, UserState } from "../types";
+import {
+  LoginHandlerResponse,
+  PurpleUser,
+  ReqUser,
+  User,
+  UserState,
+} from "../types";
 import installExtension, {
   REDUX_DEVTOOLS,
   REACT_DEVELOPER_TOOLS,
 } from "electron-devtools-installer";
 import getUser from "./getUser";
 import fs from "fs";
+import reqUser from "./api/reqUser";
 
 async function createMainWindow() {
   const window = new BrowserWindow({
@@ -33,6 +40,12 @@ async function createMainWindow() {
     console.log(arg);
     window.webContents.send("hello", "uga?");
   });
+
+  // ipcMain.handle("reqUser", async (event, arg: ReqUser) => {
+  //   const user = await reqUser(arg.id, arg.token);
+  //   console.log("HUH???");
+  //   window.webContents.emit("resUser", user);
+  // });
 
   ipcMain.handle("login", async (event, arg: UserState) => {
     //console.log(arg);

@@ -9,20 +9,24 @@ interface TestResponse {
 }
 
 async function req<T = any>(callback: Function): Promise<Response<T>> {
-  try {
-    const axiosResponse: AxiosResponse = await callback();
-    const response: Response = {
-      data: axiosResponse.data,
-      error: null,
-    };
-    return response;
-  } catch (e: unknown) {
-    const error: AxiosError = e as typeof e & AxiosError;
-    const response: Response = {
-      data: null,
-      error: error,
-    };
-    return response;
+  while (true) {
+    try {
+      const axiosResponse: AxiosResponse = await callback();
+      const response: Response = {
+        data: axiosResponse.data,
+        error: null,
+      };
+      return response;
+    } catch (e: unknown) {
+      const error: AxiosError = e as typeof e & AxiosError;
+      if (error.response?.status == 429) {
+        console.log(`Delayed ${error.response.data.retry_after}ms`);
+        const time = parseInt(error.response.data.retry_after) * 1000;
+        await new Promise((resolve) => setTimeout(resolve, time));
+      } else {
+        console.log(error);
+      }
+    }
   }
 }
 
