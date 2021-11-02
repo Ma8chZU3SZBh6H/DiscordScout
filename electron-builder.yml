@@ -1,0 +1,8 @@
+appId: "discord_scout"
+
+directories:
+  output: "dist/release"
+
+files:
+  - "dist/frontend"
+  - "dist/backend"

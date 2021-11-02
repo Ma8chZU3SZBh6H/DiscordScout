@@ -1,4 +1,5 @@
 import {BrowserWindow,  app} from "electron";
+import isDev from "electron-is-dev";
 
 function createMainWindow(){
     const window = new BrowserWindow({
@@ -7,7 +8,7 @@ function createMainWindow(){
             contextIsolation: false
         }
     })
-    window.loadURL("http://localhost:8080/");
+    window.loadURL(isDev ? "http://localhost:8080/" : `file://${app.getAppPath()}/dist/frontend/index.html`);
 }
 
 app.on("ready", createMainWindow);
