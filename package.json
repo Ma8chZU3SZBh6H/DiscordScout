@@ -8,8 +8,10 @@
     "@swc/core": "^1.2.105",
     "autoprefixer": "^10.4.0",
     "axios": "^0.24.0",
+    "concurrently": "^6.3.0",
     "css-loader": "^6.5.0",
     "dotenv-webpack": "^7.0.3",
+    "electron": "^15.3.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.4.3",
     "postcss": "^8.3.11",
@@ -32,6 +34,7 @@
   },
   "scripts": {
     "build": "NODE_ENV=production webpack --mode=production",
-    "start": "webpack serve"
+    "start": "webpack serve",
+    "electron:start": "concurrently \"TARGET=electron-renderer webpack serve\" \"webpack --config webpack.electron.js && electron ./dist/backend/main.js\""
   }
 }
