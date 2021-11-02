@@ -20,7 +20,7 @@ module.exports = {
       {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
-        include: path.join(__dirname, "/src/frontend"),
+        include: path.join(__dirname, "/src/"),
         use: {
           loader: "swc-loader",
           options: {

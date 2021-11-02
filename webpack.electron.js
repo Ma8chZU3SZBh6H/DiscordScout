@@ -12,7 +12,7 @@ module.exports = {
       {
         test: /\.ts$/,
         exclude: /node_modules/,
-        include: path.join(__dirname, "/src/backend"),
+        include: path.join(__dirname, "/src/"),
         loader: "swc-loader",
         options: {
           jsc: {
