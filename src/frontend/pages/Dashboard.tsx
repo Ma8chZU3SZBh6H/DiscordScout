@@ -5,13 +5,16 @@ import {
   Response,
   DashboardChannel,
 } from "../../types";
-import reqUser from "../../backend/api/reqUser";
+import reqUser from "../api/reqUser";
 import useUser from "../hooks/useUser";
 import { ipcRenderer } from "electron";
+import useRouter from "../hooks/useRouter";
 
 function Dashboard() {
+  const router = useRouter();
+
   const userState = useUser();
-  const pageLimit = 10;
+  const pageLimit = 1;
   const [currentDashboardPage, setCurrentDashboardPage] = useState(0);
   const [pagedDashboardChannels, setPagedDashboardChannels] = useState([]);
 
@@ -68,6 +71,12 @@ function Dashboard() {
       <div className="flex flex-col gap-3">
         {pagedDashboardChannels.map((channel: DashboardChannel, index) => (
           <button
+            onClick={() =>
+              router.destroyerPage({
+                destroy: channel.friend,
+                name: channel.name,
+              })
+            }
             className="px-2 py-1 border rounded transition hover:bg-blue-200 cursor-pointer"
             key={index}
           >
@@ -75,7 +84,7 @@ function Dashboard() {
           </button>
         ))}
       </div>
-      <div className="flex justify-evenly">
+      <div className="flex justify-evenly flex-wrap">
         {Array(pageCount)
           .fill(0)
           .map((value, index) => (

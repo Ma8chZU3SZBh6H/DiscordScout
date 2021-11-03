@@ -10,6 +10,7 @@ export interface UserState {
 
 export interface RouterState {
   page: string;
+  params: any;
 }
 
 export interface UserAction {
@@ -25,6 +26,7 @@ export interface UserAction {
 export interface RouterAction {
   type: string;
   payload?: string;
+  params?: any;
 }
 
 //forms

@@ -7,6 +7,7 @@ import { RouterPages } from "./state/types/routerTypes";
 
 import { ipcRenderer } from "electron";
 import { LoginHandlerResponse, UserState } from "../types";
+import Destroyer from "./pages/Destroyer";
 
 //let socket: Socket | null = null;
 
@@ -42,6 +43,8 @@ function App() {
   switch (router.router.page) {
     case RouterPages.DASHBOARD:
       return <Dashboard />;
+    case RouterPages.DESTROYER:
+      return <Destroyer />;
     case RouterPages.LOGIN:
       return <Login />;
     default:

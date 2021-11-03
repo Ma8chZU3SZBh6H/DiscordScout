@@ -5,9 +5,7 @@ import installExtension, {
   REDUX_DEVTOOLS,
   REACT_DEVELOPER_TOOLS,
 } from "electron-devtools-installer";
-import getUser from "./getUser";
 import fs from "fs";
-import reqUser from "./api/reqUser";
 
 async function createMainWindow() {
   const window = new BrowserWindow({
@@ -49,7 +47,7 @@ async function createMainWindow() {
       user: null,
     };
     try {
-      //const user: User = await getUser(arg.token);
+      //const user: User = await reqUser(arg.token);
       const user = JSON.parse(fs.readFileSync("user.json").toString());
       loginHandlerResponse.user = user;
       loginHandlerResponse.success = true;
